@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import Name from './Name';
-import { nanoid } from "nanoid";
+import ContactForm from './ContactForm';
+// import ContactList from './ContactList';
+
 
 class Phonebook extends Component {
   state = {
@@ -8,27 +9,22 @@ class Phonebook extends Component {
     name: ''
   }
 
-  handleChange = e => {
-    const { name, value } = e.target;
-    this.setState({ [name]: value });
-  };
-
-  handleSubmit = evt => {
-    evt.preventDefault();
-    
-  };
+  formSubmitHandler = data => {
+    console.log(data);
+  }
 
 
-  render(){
-    const nameId = nanoid();
+
+  render() {
+    // const { contacts, name } = this.state;
+    // const nameInputId = nanoid();
 
     return(
-      <>
-      <form onSubmit={this.handleSubmit}>
-          <Name id={nameId} onNameEnter={this.handleChange}/>
-          <button type="submit">Add contact</button>
-      </form>
-      </>
+      <div>
+        <h1>Phonebook</h1>
+          <ContactForm onSubmit={this.formSubmitHandler}/>     
+        {/* <ContactList contacts={contacts} /> */}
+      </div>
     )
   }
 }
