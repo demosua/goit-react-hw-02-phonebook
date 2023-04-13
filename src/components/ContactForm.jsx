@@ -25,8 +25,6 @@ class ContactForm extends Component {
     this.setState({ name: '', number: '', filter: '' });
   };
 
-
-
   render() {
     const nameInputId = nanoid();
     const numberInputId = nanoid();
