@@ -2,10 +2,9 @@
 const ContactList = ({ contacts }) => {
   return (
     <>
-      <h2>Contacts</h2>
        <ul>
-          {contacts.map(({ id, name }) => (
-            <li key={id}>{name}</li>
+          {contacts.map(({ id, name, number }) => (
+            <li key={id}>{name}: {number}</li>
           ))}
         </ul>
     </>
