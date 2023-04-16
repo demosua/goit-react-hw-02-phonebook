@@ -1,6 +1,6 @@
 import React from 'react';
 import { Item, Avatar, Name, Number, Phone, Trash } from './ContactItem.styled';
-import { IoPersonOutline, IoPersonAddOutline, IoCallOutline, IoTrashOutline } from 'react-icons/io5';
+import { IoPersonOutline, IoCallOutline, IoTrashOutline } from 'react-icons/io5';
 
 
 const ContactItem = ({ id, name, number, onDeleteContact }) => {
@@ -10,7 +10,7 @@ const ContactItem = ({ id, name, number, onDeleteContact }) => {
         <Avatar><IoPersonOutline size="20px" /></Avatar>
         <Name>{name}:</Name>
         <Number>{number}</Number>
-        <Phone href='tel:${number}'><IoCallOutline size="20px" /></Phone>
+        <Phone href={`tel: ${number}`}><IoCallOutline size="20px" /></Phone>
         <Trash><IoTrashOutline size="20px" onClick={() => onDeleteContact(id)} /></Trash>
       </Item>
     </>
