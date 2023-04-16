@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { nanoid } from "nanoid";
 import { Form, Label, Input, Button } from './ContactForm.styled';
+import { IoPersonAddOutline } from 'react-icons/io5';
 
 class ContactForm extends Component {
   state = {
@@ -31,7 +32,7 @@ class ContactForm extends Component {
         <Label htmlFor ={nameInputId}>
           Name
         </Label>
-          <input
+          <Input
             type="text"
             name="name"
             id={nameInputId}
@@ -45,7 +46,7 @@ class ContactForm extends Component {
         <Label htmlFor ={numberInputId}>
           Number
         </Label>
-          <input
+          <Input
             type="tel"
             name="number"
             id={numberInputId}
@@ -56,8 +57,7 @@ class ContactForm extends Component {
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
           />
-
-          <Button type="submit">Add contact</Button>
+            <Button type="submit"><IoPersonAddOutline /></Button>            
       </Form>
     </>
   )
