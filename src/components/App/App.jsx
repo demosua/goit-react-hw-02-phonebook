@@ -23,6 +23,7 @@ class App extends Component {
     contacts.filter(contact => contact.name.toLowerCase() === data.name.toLowerCase()).length > 0
       ? alert(`${data.name} is already in contacts.`)
       : this.setState(({ contacts }) => ({ contacts: [contact, ...contacts] }));
+    
   };
 
   deleteContact = contactId => {
