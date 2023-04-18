@@ -2,11 +2,10 @@ import React, { Component } from "react";
 import { nanoid } from "nanoid";
 import { Form, Label, Input, Button } from './ContactForm.styled';
 import { IoPersonAddOutline } from 'react-icons/io5';
+import PropTypes from 'prop-types';
 
 class ContactForm extends Component {
   state = {
-  contacts: [],
-    filter: '',
     name: '',
     number: ''
   }
@@ -19,7 +18,6 @@ class ContactForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.onSubmit(this.state);
-    this.setState({ name: '', number: '', filter: '' });
   };
 
   render() {
@@ -65,3 +63,7 @@ class ContactForm extends Component {
 };
   
 export default ContactForm;
+
+ContactForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
