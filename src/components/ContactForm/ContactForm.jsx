@@ -17,8 +17,23 @@ class ContactForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    const { name, number } = this.state;
+    const isContact = this.props.contacts.filter(contact => contact.name.toLowerCase() === name.toLowerCase()).length > 0
+    const isNumber = this.props.contacts.filter(contact => contact.number.toLowerCase() === number.toLowerCase()).length > 0
+
+    if(isContact || isNumber){
+      isContact ? this.setState({name: ''}) : this.setState({number: ''})
+      isContact ? alert(`${name} is already in contacts.`) : alert(`${number} is already in contacts.`)
+      return;
+    }
+
     this.props.onSubmit(this.state);
+    this.reset();
   };
+
+  reset = () => {
+    this.setState({ name: '', number: '' });
+  }
 
   render() {
     const nameInputId = nanoid();
@@ -65,5 +80,12 @@ class ContactForm extends Component {
 export default ContactForm;
 
 ContactForm.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.exact({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    }).isRequired
+  ).isRequired,
   onSubmit: PropTypes.func.isRequired,
 };

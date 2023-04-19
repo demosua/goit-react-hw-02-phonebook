@@ -48,7 +48,7 @@ class App extends Component {
       <Container>
         <Section>
         <Title>Phonebook</Title>
-        <ContactForm onSubmit={this.addContact} />  
+        <ContactForm onSubmit={this.addContact} contacts={this.state.contacts}/>  
         </Section>
         <h2>Contacts</h2>  
           <Filter value={filter} onChange={this.changeFilter} />
